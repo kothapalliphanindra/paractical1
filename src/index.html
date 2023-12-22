@@ -1,17 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOOD DELIVERY WEBPAGE</title>
+    <style>
+        tr{
+            background-color: maroon;
+            color: white;
+            text-align:center ;
+        }
+        dt{
+            font-weight: bold;
+            background-color: maroon;
+            color: white;
+        }
+    </style>
+    <script>
+        function placeorder()
+        {
+            document.getElementById("order summary").style.display="block";
+            document.getElementById("orderform").style.display="none";
+            uname=document.getElementById("textname");
+            mobile=document.getElementById("txtmoblie");
+            burger=document.getElementById("optburger");
+            roller=document.getElementById("optroller");
+            fries=document.getElementById("optfries");
+
+            var mcost=0;
+            var acost=0;
+            var mname=" ";
+            var aname=" ";
+            if(burger.checked){
+                mcost=120;
+                mname=burger.value;
+            }
+            if(roller.checked){
+                mcost=100;
+                mname=roller.value;
+            }
+            if(fries.checked){
+                acost=125;
+                mcost=mcost+acost;
+                aname=aname+fries.value + <br>;
+            }
+            document.getElementById("iblname").innerHTML=uname.value;
+            document.getElementById("iblmobile").innerHTML=moblie.value;
+            document.getElementById("iblmeal").innerHTML=mname;
+            document.getElementById("ibladd").innerHTML=aname;
+            document.getElementById("iblammount").innerHTML=mcost;
+
+
+
+        }
+    </script>
 </head>
-
 <body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
-  </main>
-</body>
+    <div>
+        <font size="6">
+            <table width="800" border="2" cellspacing="4" cellpadding="4" align="center" id="orderform">
+                <tr>
+    
+                </tr>
+                <tr>
+                    <td colspan="2">customer detalis</td>
+                </tr>
+                <tr>
+                    <td>
+                        Coustomer name
+                        <td>
+                            <input type="text" id="textname">
+                        </td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>customer moblie no</td>
+                    <td><input type="text" id="txtmoblie"></td>
+                </tr>
+                <tr>
+                    <td>SELECT A MEAL</td>
+                </tr>
+                <tr>
+                    <td><img style="width: 300px;" src="depositphotos_348532724-stock-photo-burger-dark-wooden-cutting-board.jpg">
+                    <br>
+                    <input type="radio" name="meal" id="optburger" value="omgburger">omgBURGER(&#8377;120)</td>
+                    <td>
+                        <img src="download (1).jpeg">
+                        <br>
+                        <input type="radio" name="meal" id="optroller" value="omgroller">omgroller(&#8377;100)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">select ad-on's</td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="download (3).jpeg">
+                        <br>
+                        <input type="checkbox" id="optfries" value="largefries">largefries(&#8377;125)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" onclick="placeorder()" value="placeorder">
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <dl id="order summary" style="display: none;">
+            <h2> order summary</h2>
+            <dt>customer name</dt>
+            <dd id="iblname"></dd>
+            <dt> mobile</dt>
+            <dd id="iblmobile"></dd>
+            <dt>MEAL</dt>
+            <dd id="iblmeal"></dd>
+            <dt>ADD on's</dt>
+            <dd id="ibladd"></dd>
+            <dt>total bill amount</dt>
+            <dd id="iblamount"></dd>
+            <br>
+            <input type="botton" value="print bill" onclick="window.print()">
+        </dl>
+        </font>
 
+    </div>
+</body>
 </html>
